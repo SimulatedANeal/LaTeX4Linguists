@@ -2,6 +2,12 @@
 
 A guide for linguists wanting a better document preparation tool.
 
+Four easy steps to beautiful linguistics papers:
+(1) Read through ling_template.pdf
+(2) View the source code in ling_template.tex
+(3) Practice. Practice. Practice.
+(4) Impress your professor and all your friends with a beautifully formatted paper!
+
 This is by no means a comprehensive guide. It is, I hope, enough to
 introduce you to the world of LaTeX and give you the tools you need to complete
 your next assignment, report, or research paper in LaTeX.
