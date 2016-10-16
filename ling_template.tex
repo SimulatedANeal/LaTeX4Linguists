@@ -66,7 +66,7 @@ It's only hours until the deadline and your linguistics paper is a jumble of wor
 
 {\LaTeX} is a \textsc{free} document preparation system that takes away the worry of formatting and lets the author focus on content. {\LaTeX} includes several useful tools that make formatting for linguistics particularly convenient.
 
-We begin by walking through downloading {\LaTeX} and learning a few {\LaTeX} document essentials, like the preamble, sectioning, and figures. Once we have the basics down, we delve into some of the linguistic applications, looking at how to write IPA symbols for phonetics using {\LaTeX}'s \verb!tipa! package. There's also an overview of {\LaTeX}'s Syntax tools, including the creation of syntax tree diagrams with \verb!qtree! and numbered examples with \verb!gb4e!. For more advanced users, I touch briefly on creating a bibliography and appendices. Lastly, if you want to learn more about {\LaTeX}, the web addresses of several documentation pages are provided in Appendix B.
+We begin by walking through downloading {\LaTeX} and learning a few {\LaTeX} document essentials, like the preamble, sectioning, and figures. Once we have the basics down, we delve into some of the linguistic applications, looking at how to write IPA symbols for phonetics using {\LaTeX}'s \verb!tipa! package and an overview of {\LaTeX}'s Syntax tools, including the creation of syntax tree diagrams with \verb!qtree! and numbered examples with \verb!gb4e!. For adventurous students, I also touch briefly on creating a bibliography and appendices. Lastly, if you want to learn more about {\LaTeX}, the web addresses of several documentation pages are provided in Appendix B.
 
 \section{Getting Started} 
 \subsection{Installing \LaTeX}
@@ -101,7 +101,7 @@ Before diving into linguistics, we must first look at the basic components of a 
 
 Note in Figure \ref{fig:preamble} that the command \verb!\usepackage! is used to import packages that provide additional functionality. (You'll see more of these later.) Also note that anything after a \% character will be interpreted as a comment, and will not show up in your typeset document. This is one of many reserved characters that serve special functions in {\LaTeX}. You've already seen \textbackslash, which starts commands. It can also be used to start a new line by writing two consecutively: \textbackslash \textbackslash. If you wish to have a backslash character in your text as I have above, you need to use the command \verb!\textbackslash!. Other reserved characters include \# \$ \^{} \& \_ \{  \} and \~{}, which can be produced by \verb!\# \$ \^{} \& \_ \{ \}  \~{}!, respectively. For information on what these reserved characters mean and are used for, please refer to the general documentation.
 
-\subsubsection{Title, Sectioning, and Typesetting}
+\subsubsection{Title, Sectioning, and Typesetting} \label{sect}
 
 Once you have the basic format of your paper defined in the preamble, it's time to actually create your document. Under your preamble, you may create a document title and list the author or authors using the commands \verb!\title{Your Title Here}! and \verb!\author{Your Name Here}!\footnote{Please forgive the intrusion into my margin. But this way I get to demonstrate how footnotes work (see source code in ling\_template.tex).}, respectively. To get your title to show up, you have to use \verb!\maketitle! after beginning your document with \verb!\begin{document}!. Any text and figures you want in your document go between your \verb!\begin{document}! command and its matching \verb!\end{document}! command. An example with sections is provided in Figure \ref{fig:doc}.
 
@@ -133,10 +133,10 @@ This is just getting ridiculous.
 \end{tabular}
 \end{figure}
 
-To turn your commands into a document, use the typeset button (typically a green circle with a triangle in it) in the top left corner of the editor. If you're not sure on the syntax for a command or think you're missing a package, don't worry; when you try to typeset your document, {\LaTeX} will print out an error message and tell you where the error happened. This makes it easy to find your mistake and try again. 
+To turn your commands into a document, use the typeset button (typically a green circle with a triangle in it) in the top left corner of the editor. If you're not sure on the syntax for a command or think you're missing a package, don't worry; when you try to typeset your document, {\LaTeX} will print out an error message and tell you where the error happened. This makes it easy to find your mistake and try again.
 
 \subsubsection{Figures} \label{figures}
-Many good papers have figures to support and illustrate their point or provide a visual of results (and NOT just to add fluff and up your page count). Figures are crucial to conveying information in an easily digestible manner. I've already used two figures in this document to separate some source code from the main text. Imagine how difficult it would be to grasp {\LaTeX} commands if you had to parse through a block of text to identify specific commands instead of seeing a nice clear example in a figure? In general, figures could be anything from source code, to pictures or plots but you almost always have them stored as an image on your computer. In this section I'll walk through an example of adding a figure to your text.
+Many good papers have figures to support and illustrate their point or provide a visual of results (and NOT just to add fluff and up your page count). Figures are crucial to conveying information in an easily digestible manner. I've already used two figures in this document to separate some source code from the main text. Imagine how difficult it would be to grasp {\LaTeX} commands if you had to parse through a block of text to identify specific commands instead of seeing a nice clear example in a figure? In general, figures could be anything from source code, to pictures or plots, but they are almost always in an image format. In this section I'll walk through an example of adding a figure to your text.
 
 \begin{figure}[h]
 \centering
@@ -189,7 +189,9 @@ Many good papers have figures to support and illustrate their point or provide a
 	\caption{A figure I included in my final paper for Dr. Jordan Sandoval's LING 411 Course: Topics in Phonetics and Phonology, Western Washington University, Spring 2016.}\label{fig:plot}
 \end{figure}
 
-{\LaTeX} allows you to import most major image formats (e.g. JPEG, PNG, PDF) using the \verb!graphicx! package. It's easiest if the image file is in the same folder as your .tex file, though it is possible to specify a separate folder either directly or using \verb!\graphicspath!. An example with source code is provided in Figure \ref{fig:image}, while Figure \ref{fig:plot} is more typical of something you might see in a technical linguistics paper. These specific plots were created using R Statistical Software \cite{RStats}. Note from Figure \ref{fig:imsource} the \verb![h]! option in \verb!\begin{figure}[h]!; this is used to give {\LaTeX} an idea of where you would like to position the figure. {\LaTeX} usually does a pretty good job at placing figures somewhere that minimizes blank space, but if you want more control over where the figure goes, some common options include \verb!h! (place the figure approximately here), \verb!H! (place the figure at precisely the location from the source code), \verb!t! (top of page), \verb!b! (bottom of page), or \verb!p! (put it on a special page for figures). It may take some trial-and-error to find what works best for you. Also, note the ability to place the caption at the top or bottom of the figure by placing the \verb!\caption{}! command either at the beginning or end of the \verb!figure! block, respectively. For more detailed examples, there's a fantastic wiki page on figures \url{https://en.wikibooks.org/wiki/LaTeX/Floats,\_Figures\_and\_Captions}.
+{\LaTeX} allows you to import most major image formats (e.g. JPEG, PNG, PDF) using the \verb!graphicx! package. It's easiest if the image file is in the same folder as your .tex file, though it is possible to specify a different folder using \verb!\graphicspath!. An example with source code is provided in Figure \ref{fig:image}, while Figure \ref{fig:plot} is more typical of something you might see in a technical linguistics paper. To demonstrate a citation (see Section \ref{bib}), the plots in Figure \ref{fig:plot} were created using R Statistical Software \cite{RStats}.
+
+Note the \verb![h]! option in \verb!\begin{figure}[h]! from Figure \ref{fig:imsource}; this is used to give {\LaTeX} an idea of where you would like to position the figure. {\LaTeX} usually does a pretty good job at placing figures somewhere that minimizes blank space, but if you want more control over where the figure goes, some common options include \verb!h! (place the figure approximately here), \verb!H! (place the figure at precisely the location from the source code), \verb!t! (top of page), \verb!b! (bottom of page), or \verb!p! (put it on a special page for figures). It may take some trial-and-error to find what works best for you. Also, note the ability to place the caption at the top or bottom of the figure by placing the \verb!\caption{}! command either at the beginning or end of the \verb!figure! block, respectively. For more detailed examples, there's a fantastic wiki page on figures \url{https://en.wikibooks.org/wiki/LaTeX/Floats,\_Figures\_and\_Captions}.
 
 Now that you've learned the basics, it's time to move on to linguistics!
 
@@ -280,7 +282,7 @@ A major component of Syntax papers is diagramming sentences in tree diagrams. Co
 
 \clearpage
 
-Yet for many this string of commands and brackets may be confusing and, admittedly, there are many things {\LaTeX} can't do (easily), such as tracing word movement. If you prefer to use an external tree diagram software package (e.g. TreeForm), you can save your diagram as an image and import it into your {\LaTeX} document as a figure (see Section \ref{figures}).
+Unfortunately, this string of commands and brackets can be confusing and, admittedly, there are many things {\LaTeX} can't do (easily), such as tracing word movement. If you prefer to use an external tree diagram software package (e.g. TreeForm), you can save your diagram as an image and import it into your {\LaTeX} document as a figure (see Section \ref{figures}).
 
 Another tool critical to Syntax papers is numbering glosses and examples. It's often necessary to change the order of examples many times before a paper is complete. {\LaTeX} makes this easy with the package \verb!gb4e!. (IMPORTANT: be sure to make \verb!gb4e! the last \verb!\usepackage! call in the preamble, otherwise you might get an error.) Instead of having to go back through, changing the number of each example by hand -- potentially missing one -- all you have to do is cut and paste the line \verb!\ex Example Sentence! and {\LaTeX} does the rest. Example commands and output are given below in Figure \ref{fig:nums}.
 
@@ -307,7 +309,7 @@ Another tool critical to Syntax papers is numbering glosses and examples. It's o
 These tools should be enough to get you started down the path of magnificent syntax papers. For more detailed examples on numbered examples and glosses, refer to the Linguistics specific LaTeX wiki (Appendix B).
 
 \section{End Material}
-\subsection{Bibliography}
+\subsection{Bibliography}\label{bib}
 The biblography is a vital part of any research paper. It gives credit to the authors whose ideas helped shape your argument. But if you have, say, 20 references, typing out each one and making sure they're alphabetized and in the correct format can be a pain. So why not let LaTeX do the work for you? In this section, we'll see one way to add a bibliography to your document. There are many other ways, (and one of them may be more appropriate depending on your operating system or desired format) but I demonstrate this specific method because it's the easiest way I've found to get everything in APA format, which is the format most linguistics papers follow.
 
 \begin{figure}[h]
@@ -329,22 +331,22 @@ The biblography is a vital part of any research paper. It gives credit to the au
 \end{tabular}
 \end{figure}
 
-It's possible to embed your references directly where you want the bibliography to go, but it's cleaner (and more instructive) to provide your references in a separate .bib file using what are called BibTeX entries. The benefit to using BibTeX entries is that many online journals or article databases provide a BibTeX entry for each article, which means you just have to copy+paste and let {\LaTeX} do the rest! An example BibTex entry is provided in Figure \ref{fig:bibex}. I've included several other entries in my .bib file, but because I don't actually cite them, they won't appear in my reference list. They're there to give you an idea of how to define your own BibTeX entry if the online journal, etc. doesn't provide one.
+It's possible to embed your references directly where you want the bibliography to go, but it's cleaner (and more instructive) to provide your references in a separate \verb!.bib! file using what are called BibTeX entries. The benefit to using BibTeX entries is that many online journals or article databases already provide a BibTeX entry for each article, which means you just have to copy+paste and let {\LaTeX} do the rest! An example BibTex entry is provided in Figure \ref{fig:bibex}. I've included several other entries in my .bib file, but because I don't actually cite them, they won't appear in my reference list. They're there to give you an idea of how to define your own BibTeX entry if the online journal, etc. doesn't provide one.
 
-When you want to cite the article (or Software, in my case) just call \verb!\cite{<label>}! with the short label you defined in the reference's BibTeX entry. The other commands you need to know are \verb!\usepackage{apacite}!, which should go in your preamble, and \verb!\bibliographystyle{apacite} \bibliography{bibliography.bib}!, where bibliography.bib is the name of your .bib file. The last two commands should be called wherever you want your reference list to be displayed, e.g. after the appendices.
+When you want to cite the article (or Software, in my case) just call \verb!\cite{<label>}!, using the short label you define in the reference's BibTeX entry. The other commands you need to know are \verb!\usepackage{apacite}!, which should go in your preamble, and \verb!\bibliographystyle{apacite} \bibliography{bibliography.bib}!, where bibliography.bib is the name of your .bib file. The last two commands should be called wherever you want your reference list to be displayed, e.g. after the appendices.
 
-After typesetting your document, if the citations don't appear, go to the drop-down next to the typeset button, select BibTeX, hit the typeset button, then run the typeset procedure one last time with pdfLaTeX (or whatever you were using that worked).
+After typesetting your document, if the citations don't appear, go to the drop-down next to the typeset button, select BibTeX, hit the typeset button, then run the typeset procedure one last time with pdfLaTeX (or whatever you were using before that worked).
 
 \subsection{Appendices}
 When writing a linguistics paper, you frequently have too much data to include in the main body of your text. But it's still important to include all that data so readers can replicate your experiments. That's where appendices come in. It's where you dump everything that doesn't belong in the main text but is still there for those interested. I've included two appendices for your reference. One is data from the Buckeye Corpus \cite{buckeye} that I used in LING 411 (refer back to Figure \ref{fig:plot}), and the other is a list of websites I think are useful but take up too much space when referred to in-line.
+
+There isn't much to creating an appendix. Can you guess what the command is? If you guessed \verb!\appendix!, you're right! See, you're a {\LaTeX} expert already! After calling the \verb!\appendix! command, you can treat each appendix like a new section, using the same \verb!\section! command as in Section \ref{sect}. The only change is you add an asterisk (*) before the argument, e.g. \verb!\section*{Appendix A: Sample Data}!.
 
 \section{Conclusion}
 While it takes much longer than the few hours before a paper is due to master {\LaTeX}, we've seen how a basic grasp of specific linguistics packages such as \verb!tipa! and \verb!qtree! can make formatting easy! With the tools outlined in this paper and a few hours of practice, anyone can create beautiful linguistics papers. And we've barely scratched the surface! There's a multitude of other {\LaTeX} packages and commands you can use to make your documents even more awesome! But I'll leave those for you to discover. In the meantime, let all your words, diagrams, and fonts fall neatly in place and say goodbye to time and frustration spent herding cats.
 
 \appendix
 \section*{Appendix A: Sample Data}
-The number in parentheses indicates the number of tokens considered for that word. A type without a number specified has a token count of one (1).
-
 \linespread{1.0}\selectfont
 \vspace{4ex}
 \noindent
